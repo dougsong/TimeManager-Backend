@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="com.songzheng.domain.Note" table="note">
+		
+		<id name="nid" column="nid">
+			<generator class="uuid"/>
+		</id>
+		
+		<property name="note_title" column="note_title"/>
+		<property name="note_lastModifiedTime" column="note_lastModifiedTime"/>
+		<property name="note_content" column="note_content"/>
+		
+		<many-to-one name="user" class="com.songzheng.domain.User" column="user_id" />
+	</class>
+
+</hibernate-mapping>

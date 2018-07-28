@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	
+	<class name="com.songzheng.domain.Task" table="tasks">
+		
+		<id name="tid" column="tid">
+			<generator class="uuid"/>
+		</id>
+		
+		<property name="task_content" column="task_content" />
+		<property name="complete" column="complete" />
+		<property name="star" column="star" />
+		<property name="expireTime" column="expireTime" />
+		
+		<many-to-one name="taskGroup" class="com.songzheng.domain.TaskGroup" column="task_group_id" />
+		
+	</class>
+	
+</hibernate-mapping>

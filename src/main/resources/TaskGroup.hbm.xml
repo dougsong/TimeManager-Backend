@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="com.songzheng.domain.TaskGroup" table="task_group">
+	
+		<id name="gid" column="gid">
+			<generator class="uuid"/>
+		</id>
+		
+		<property name="group_title" column="group_title"/>
+		<property name="count" column="count"/>
+		
+		<many-to-one name="user" class="com.songzheng.domain.User" column="user_id" />
+		
+		<set name="tasks" cascade="save-update">
+			<key column="task_group_id"/>
+			<one-to-many class="com.songzheng.domain.Task"/>
+		</set>
+	</class>
+
+</hibernate-mapping>
